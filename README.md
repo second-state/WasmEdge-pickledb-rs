@@ -44,17 +44,16 @@ console.log("First result: " + first_result);
 ```
 
 Run the Node file
+
+Please note: The following is not the intended output, in the very near future pickledb's writing to file will be updated to write to RocksDB.
 ```
 tpmccallum@tpmccallum:/media/nvme/node_rpc/wasm-joey/src/testing_using_node$ node pickle.js 
 [2021-09-29 16:04:28.843] [info] compile start
 [2021-09-29 16:04:28.921] [info] verify start
 [2021-09-29 16:04:28.988] [info] optimize start
 [2021-09-29 16:04:35.781] [info] codegen start
-[2021-09-29 16:04:41.484] [info] compile done
-[2021-09-29 16:04:41.589] [error] execution failed: out of bounds memory access, Code: 0x88
-[2021-09-29 16:04:41.589] [error]     When executing function name: "first"
-/media/nvme/node_rpc/wasm-joey/src/testing_using_node/pickle.js:18
-var first_result = vm_aot.RunString("first");
-                          ^
+[2021-09-29 16:04:41.484] [info] compile done ...
+// snip //
+... more to come 
 
 ```
