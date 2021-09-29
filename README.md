@@ -13,7 +13,13 @@ cd /home/tpmccallum/testing_data_storage_in_wasmedge/pickledb-rs/WasmEdge-pickle
 rustwasmc build
 ```
 
-Run the code
+Create Node js file to run the code
+
+```
+vi pickle.js
+```
+
+Then add this to pickle.js
 ```
 // Create ssvm instance
 const ssvm = require("wasmedge-extensions");
@@ -35,4 +41,20 @@ var vm_aot = new ssvm.VM(aot_path, { EnableAOT:true, rgs:process.argv, env:proce
 var first_result = vm_aot.RunString("first");
 
 console.log("First result: " + first_result);
+```
+
+Run the Node file
+```
+tpmccallum@tpmccallum:/media/nvme/node_rpc/wasm-joey/src/testing_using_node$ node pickle.js 
+[2021-09-29 16:04:28.843] [info] compile start
+[2021-09-29 16:04:28.921] [info] verify start
+[2021-09-29 16:04:28.988] [info] optimize start
+[2021-09-29 16:04:35.781] [info] codegen start
+[2021-09-29 16:04:41.484] [info] compile done
+[2021-09-29 16:04:41.589] [error] execution failed: out of bounds memory access, Code: 0x88
+[2021-09-29 16:04:41.589] [error]     When executing function name: "first"
+/media/nvme/node_rpc/wasm-joey/src/testing_using_node/pickle.js:18
+var first_result = vm_aot.RunString("first");
+                          ^
+
 ```
