@@ -1,3 +1,4 @@
+use wasm_bindgen::prelude::*;
 use pickledb::{PickleDb, PickleDbDumpPolicy, SerializationMethod};
 
 #[wasm_bindgen]
